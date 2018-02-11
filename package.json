@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "cfx.simple-build-tool": "^0.0.6"
+  }
+}
