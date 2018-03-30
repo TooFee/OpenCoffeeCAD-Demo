@@ -1,5 +1,6 @@
 # NOTE: this is merely temporary as the echo() function will likely be deprecated soon
-main = =>
+export default =>
+
   echo 'hi I am outputing some text'
 
   [

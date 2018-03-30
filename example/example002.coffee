@@ -4,23 +4,9 @@
 # description: example002.scad ported to OpenJSCAD.org
 # file       : example002.jscad
 
-c = (func, params...) =>
-  func.apply @, params
+import c from '../sources'
 
-c.a = (func, params...) =>
-  _params = params.reduce (r, c) =>
-    [
-      r...
-      (
-        if Array.isArray c
-        then c
-        else [ c ]
-      )...
-    ]
-  , []
-  c func, _params
-
-example002 = =>
+export default =>
 
   c intersection
   ,
@@ -57,5 +43,3 @@ example002 = =>
         r1: 20
         r2: 5
         center: true
-
-main = => example002()

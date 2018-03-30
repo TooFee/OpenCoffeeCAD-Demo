@@ -4,21 +4,7 @@
 # description: example005.scad ported to OpenJSCAD
 # file       : example005.jscad
 
-c = (func, params...) =>
-  func.apply @, params
-
-c.a = (func, params...) =>
-  _params = params.reduce (r, c) =>
-    [
-      r...
-      (
-        if Array.isArray c
-        then c
-        else [ c ]
-      )...
-    ]
-  , []
-  c func, _params
+import c from '../sources'
 
 example005 = =>
 
@@ -72,6 +58,6 @@ example005 = =>
           r1: 120
           r2: 0
 
-main = =>
+export default =>
   example005()
   .scale 1/3

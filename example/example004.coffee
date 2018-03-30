@@ -4,23 +4,10 @@
 # description: example004.scad ported to OpenJSCAD.org
 # file       : example004.jscad
 
-c = (func, params...) =>
-  func.apply @, params
+import c from '../sources'
 
-c.a = (func, params...) =>
-  _params = params.reduce (r, c) =>
-    [
-      r...
-      (
-        if Array.isArray c
-        then c
-        else [ c ]
-      )...
-    ]
-  , []
-  c func, _params
+export default =>
 
-example004 = =>
   c difference
   ,
     cube
@@ -28,5 +15,3 @@ example004 = =>
       center: true
   ,
     sphere 20
-
-main = => example004()

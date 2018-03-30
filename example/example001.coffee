@@ -4,21 +4,7 @@
 # description: example001.scad ported to OpenJSCAD.org
 # file       : example001.jscad
 
-c = (func, params...) =>
-  func.apply @, params
-
-c.a = (func, params...) =>
-  _params = params.reduce (r, c) =>
-    [
-      r...
-      (
-        if Array.isArray c
-        then c
-        else [ c ]
-      )...
-    ]
-  , []
-  c func, _params
+import c from '../sources'
 
 r_from_dia = (d) => d / 2
 
@@ -30,7 +16,7 @@ rotcy = (rot, r, h) =>
       h: h
       center: true
 
-example001 = =>
+export default =>
   size = 50
   hole = 25
   cy_r = r_from_dia hole
@@ -44,5 +30,3 @@ example001 = =>
     rotcy [ 1, 0, 0 ], cy_r, cy_h
     rotcy [ 0, 1, 0 ], cy_r, cy_h
   ]
-
-main = => example001()
