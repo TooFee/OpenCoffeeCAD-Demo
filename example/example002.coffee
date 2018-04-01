@@ -12,8 +12,8 @@ export default =>
   ,
     c difference
     ,
-      c.a union
-      , [
+      c union
+      ,
         cube
           size: [30, 30, 30]
           center: true
@@ -22,9 +22,8 @@ export default =>
           cube
             size: [15, 15, 50]
             center: true
-      ]
-      c.a union
-      , [
+      c union
+      ,
         cube
           size: [50, 10, 10]
           center: true
@@ -34,7 +33,6 @@ export default =>
         cube
           size: [10, 10, 50]
           center: true
-      ]
   ,
     translate [0, 0, 5]
     ,

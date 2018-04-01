@@ -33,8 +33,8 @@ example005 = =>
   ,
     c union
     ,
-      c.a difference
-      , [
+      c difference
+      ,
         cylinder
           h: 50
           r: 100
@@ -48,7 +48,6 @@ example005 = =>
           cube
             size: 50
             center: true
-      ]
     , cy
     ,
       translate [0, 0, 200]

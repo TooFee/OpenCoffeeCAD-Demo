@@ -26,11 +26,11 @@ gulp.task 'build', =>
 
   gulp.src './example/**/*.coffee'
   .pipe inputJs()
-  .pipe gulp.dest './build'
+  .pipe gulp.dest './dist'
 
 gulp.task 'dist', =>
 
-  gulp.src './build/**/*.js'
+  gulp.src './dist/**/*.js'
   .pipe rollup
     plugins: [
       coffee2
@@ -43,9 +43,9 @@ gulp.task 'dist', =>
   .pipe replace /\(function \(\) {/g, ''
   .pipe replace /}\(\)\);/g, ''
   .pipe replace /main\(\);/g, ';'
-  .pipe minify
-    mangle:
-      keepClassName: true
+  # .pipe minify
+  #   mangle:
+  #     keepClassName: true
   .pipe gulp.dest './dist'
 
 gulp.task 'default'
