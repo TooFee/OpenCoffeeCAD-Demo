@@ -7,6 +7,7 @@ import replace from 'gulp-string-replace'
 import minify from 'gulp-babel-minify'
 
 import inputJs from './inputJs'
+import prettier from './prettier'
 
 import rollup from 'gulp-better-rollup'
 import {
@@ -43,6 +44,7 @@ gulp.task 'dist', =>
   .pipe replace /\(function \(\) {/g, ''
   .pipe replace /}\(\)\);/g, ''
   .pipe replace /main\(\);/g, ';'
+  .pipe prettier()
   # .pipe minify
   #   mangle:
   #     keepClassName: true

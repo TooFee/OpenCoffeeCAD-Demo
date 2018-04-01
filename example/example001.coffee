@@ -23,10 +23,9 @@ export default =>
   cy_h = r_from_dia size * 2.5
 
   c difference
-  , [
+  ,
     sphere
       r: r_from_dia size
     rotcy [ 0, 0, 0 ], cy_r, cy_h
     rotcy [ 1, 0, 0 ], cy_r, cy_h
     rotcy [ 0, 1, 0 ], cy_r, cy_h
-  ]

@@ -2,16 +2,15 @@ import dd from 'ddeyes'
 
 # import Fs from 'fs'
 import Path from 'path'
-
 # import del from 'del'
 # import omit from 'omit'
-import Vinyl from 'vinyl'
 
+import Vinyl from 'vinyl'
 import through from 'through2'
 
 export default (config) =>
 
-  steam = through.obj (file, enc, cb) =>
+  stream = through.obj (file, enc, cb) =>
 
     # buf = Buffer.from file._contents
     # fileStr = buf.toString enc
@@ -23,6 +22,7 @@ export default (config) =>
     baseFile = (
       file.history[0].replace file.base, ''
     ).replace '.coffee', '.js'
+
     deployFile = "./build/#{baseFile}"
     baseName = Path.basename deployFile, '.js'
     baseDir = baseFile.replace "#{baseName}.js", ''
@@ -52,4 +52,4 @@ export default (config) =>
         path: baseFile
         contents: new Buffer template 
  
-  steam
+  stream

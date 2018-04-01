@@ -9,6 +9,7 @@
     "gulp-rollup": "^2.16.2",
     "gulp-sequence": "^1.0.0",
     "gulp-string-replace": "^1.0.0",
+    "prettier": "^1.11.1",
     "rollup": "^0.57.1",
     "rollup-plugin-cleanup": "^2.0.0",
     "through2": "^2.0.3",
