@@ -32,9 +32,23 @@ export default (config) =>
       return r if c is 0
       "#{r}../"
     , ''
+    # main = ->
+    #   r = hello()
+    #   if r.isItem? and r.isItem()
+    #   then r.getItem()
+    #   else r
     template = """
       import #{baseName} from '#{prefixBaseDir}example/#{baseDir}#{baseName}.coffee';
-      function main() { return #{baseName}(); };
+      var main;
+      main = function() {
+        var r;
+        r = #{baseName}();
+        if ((r.isItem != null) && r.isItem()) {
+          return r.getItem();
+        } else {
+          return r;
+        }
+      };
       main();
     """
 
