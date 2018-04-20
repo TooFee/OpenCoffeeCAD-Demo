@@ -1,22 +1,4 @@
-Item = (item) ->
-  @item = item
-  @
-
-Item::isItem = -> true
-
-Item::translate = ({x, y, z}) ->
-  @item = translate [ x, y, z ], @item
-  @
-
-Item::intersection = (item) ->
-  _item =
-    if item.isItem()
-    then item.getItem()
-    else item
-  @item = intersection @item, _item
-  @
-
-Item::getItem = -> @item
+import Item from './Item'
 
 Cube = (
   {l, w, h}
@@ -36,12 +18,23 @@ Cylinder = (
     center
   }
 
+Sphere = (
+  { r }
+  center = true
+) =>
+  new Item sphere {
+    r
+    center
+  }
+
 export {
   Item
   Cube
   Cylinder
+  Sphere
 }
 
 export default
   cube: Cube
   cylinder: Cylinder
+  sphere: Sphere
