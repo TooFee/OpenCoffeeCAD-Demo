@@ -1,2 +1,2 @@
-require 'coffee-require/register'
+do require 'cfx.require-plugin-coffee/register'
 require './gulp'

@@ -1,4 +1,4 @@
-import dd from 'ddeyes'
+# import dd from 'ddeyes'
 import del from 'del'
 
 import gulp from 'gulp'
@@ -10,10 +10,7 @@ import inputJs from './inputJs'
 import prettier from './prettier'
 
 import rollup from 'gulp-better-rollup'
-import {
-  coffee2
-  coffeepath
-} from 'cfx.rollup-plugin-coffee2'
+import { coffee2 } from 'cfx.rollup-plugin-coffee2'
 import cleanup from 'rollup-plugin-cleanup'
 
 gulp.task 'clean', (cb) =>
@@ -37,7 +34,6 @@ gulp.task 'dist', =>
       coffee2
         bare: true
         sourceMap: true
-      coffeepath()
       cleanup()
     ]
     , 'iife'
