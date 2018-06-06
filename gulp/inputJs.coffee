@@ -19,13 +19,16 @@ export default (config) =>
     # dd file.history[0]
     # dd file.base
 
-    baseFile = (
-      file.history[0].replace file.base, ''
-    ).replace '.coffee', '.js'
+    # baseFile = (
+    #   file.history[0].replace file.base, ''
+    # ).replace '.coffee', '.js'
+    baseFile = file.history[0].replace file.base, ''
 
     deployFile = "./build/#{baseFile}"
-    baseName = Path.basename deployFile, '.js'
-    baseDir = baseFile.replace "#{baseName}.js", ''
+    # baseName = Path.basename deployFile, '.js'
+    baseName = Path.basename deployFile, '.coffee'
+    # baseDir = baseFile.replace "#{baseName}.js", ''
+    baseDir = baseFile.replace "#{baseName}.coffee", ''
     prefixBaseDir = [0..(
       baseFile.split '/'
     ).length].reduce (r, c) =>
@@ -38,19 +41,26 @@ export default (config) =>
     #   then r.getItem()
     #   else r
     template = """
-      import #{baseName} from '#{prefixBaseDir}example/#{baseDir}#{baseName}.coffee';
-      var main;
-      main = function() {
-        var r;
-        r = #{baseName}();
-        if ((r.isItem != null) && r.isItem()) {
-          return r.getItem();
-        } else {
-          return r;
-        }
-      };
-      main();
+      import #{baseName} from '#{prefixBaseDir}example/#{baseDir}#{baseName}.coffee'
+      main = ->
+        r = do #{baseName}
+        if r.isItem? and r.isItem()
+        then r.getItem()
+        else r
+      do main
     """
+      # import #{baseName} from '#{prefixBaseDir}example/#{baseDir}#{baseName}.coffee';
+      # var main;
+      # main = function() {
+      #   var r;
+      #   r = #{baseName}();
+      #   if ((r.isItem != null) && r.isItem()) {
+      #     return r.getItem();
+      #   } else {
+      #     return r;
+      #   }
+      # };
+      # main();
 
     # unless Fs.existsSync "./build/#{baseDir}"
     #   Fs.mkdirSync "./build/#{baseDir}"

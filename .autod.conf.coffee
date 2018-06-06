@@ -19,6 +19,7 @@ export default
     'gulp-rollup'
     'gulp-sequence'
     'gulp-string-replace'
+    'gulp-rename'
     'prettier'
     'rollup'
     'rollup-plugin-cleanup'
