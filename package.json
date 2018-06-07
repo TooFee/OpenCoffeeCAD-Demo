@@ -1,9 +1,9 @@
 {
   "devDependencies": {
     "autod": "^3.0.1",
-    "cfx.require-plugin-coffee": "^0.2.10",
-    "cfx.rollup-plugin-coffee2": "^0.2.10",
-    "ddeyes": "^0.2.8",
+    "cfx.require-plugin-coffee": "^0.2.11",
+    "cfx.rollup-plugin-coffee2": "^0.2.11",
+    "ddeyes": "^0.2.11",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-babel-minify": "^0.4.3",
@@ -13,10 +13,12 @@
     "gulp-sequence": "^1.0.0",
     "gulp-string-replace": "^1.1.0",
     "prettier": "^1.13.4",
-    "rollup": "^0.59.4",
+    "rollup": "^0.60.0",
     "rollup-plugin-cleanup": "^3.0.0-beta.1",
     "through2": "^2.0.3",
     "vinyl": "^2.1.0"
   },
-  "dependencies": {}
+  "dependencies": {
+
+  }
 }
